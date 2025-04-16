@@ -29,22 +29,23 @@ h1, h2, h3, h4 {
 
 /* Navigation */
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: var(--background-color);
+    background-color: var(--white);
     padding: 1rem 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     z-index: 1000;
+    height: 60px; /* Reduced from 80px */
 }
 
 .logo h1 {
     font-size: 1.5rem;
-    color: var(--primary-color);
+    color: var(--primary-blue);
 }
 
 .nav-links {
@@ -55,13 +56,13 @@ h1, h2, h3, h4 {
 
 .nav-links a {
     text-decoration: none;
-    color: var(--text-color);
+    color: var(--dark-gray);
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: var(--primary-color);
+    color: var(--secondary-blue);
 }
 
 /* Logo Link */
@@ -321,20 +322,69 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    body {
+        padding-top: 60px; /* Match navbar height */
+    }
+
     .navbar {
-        flex-direction: column;
-        padding: 1rem;
+        padding: 0.5rem 1rem;
+        height: auto;
+        min-height: 60px;
+    }
+
+    .logo h1 {
+        font-size: 1.2rem;
     }
 
     .nav-links {
-        margin-top: 1rem;
+        position: absolute;
+        top: 60px; /* Match navbar height */
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
         flex-direction: column;
-        text-align: center;
-        gap: 1rem;
+        align-items: center;
+        padding: 0.5rem 0;
+        gap: 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: none;
     }
 
-    .hero h1 {
-        font-size: 2rem;
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid var(--light-gray);
+    }
+
+    .nav-links li:last-child a {
+        border-bottom: none;
+    }
+
+    /* Hamburger Menu */
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+        padding: 0.5rem;
+        background: none;
+        border: none;
+    }
+
+    .menu-toggle span {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background-color: var(--primary-blue);
+        margin: 5px 0;
+        transition: all 0.3s ease;
     }
 
     .trust-container {
